@@ -17,12 +17,13 @@ router.post('/sign-up', async (req, res, next) => {
   const newPassword = await createHash(member.password, 10);
   member.password = newPassword;
   console.log(member);
+
   try {
     const result = await User.create(member);
     res.status(201).json({
       success: true,
       member: result,
-      message: '회원가입이 완료되었습니다. v2',
+      message: '회원가입이 완료되었습니다. v2-1',
     });
   } catch (err) {
     next(err, req, res);
